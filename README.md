@@ -1,19 +1,19 @@
 # 📝 Todo List App
 
-Aplikasi manajemen tugas (Todo List) berbasis **React Native** dengan **Expo**, menggunakan **Firebase Firestore** sebagai backend database secara real-time.
+A simple todo list app built with **React Native + Expo** and **Firebase Firestore** as the real-time backend. You can add, view, edit, and delete todos — all synced live with the database.
 
-## ✨ Fitur
+## ✨ Features
 
-- ➕ **Tambah** todo baru
-- 📋 **Lihat** daftar semua todo secara real-time
-- ✏️ **Edit / Update** todo yang sudah ada
-- 🗑️ **Hapus** todo
-- ⚡ Sinkronisasi data real-time menggunakan Firebase Firestore
+- ➕ Add new todos
+- 📋 View all todos in real-time
+- ✏️ Edit / update existing todos
+- 🗑️ Delete todos
+- ⚡ Live sync powered by Firebase Firestore
 
 ## 🛠️ Tech Stack
 
-| Teknologi | Versi |
-|-----------|-------|
+| Tech | Version |
+|------|---------|
 | React Native | 0.88.1 |
 | Expo | ~58.0.22 |
 | Expo Router | ~58.0.29 |
@@ -21,59 +21,60 @@ Aplikasi manajemen tugas (Todo List) berbasis **React Native** dengan **Expo**, 
 | TypeScript | ~6.0.3 |
 | React Navigation | ^7.5.1 |
 
-## 📁 Struktur Proyek
+## 📁 Project Structure
 
 ```
 todo-list-app/
 ├── src/
 │   ├── app/
 │   │   ├── Screens/
-│   │   │   ├── Home.tsx       # Halaman utama (daftar & tambah todo)
-│   │   │   └── Detail.tsx     # Halaman detail (edit todo)
+│   │   │   ├── Home.tsx       # Main screen — list & add todos
+│   │   │   └── Detail.tsx     # Detail screen — edit a todo
 │   │   ├── config/
-│   │   │   └── firebase.tsx   # Konfigurasi Firebase
-│   │   └── index.tsx          # Entry point navigasi
+│   │   │   └── firebase.tsx   # Firebase config & init
+│   │   └── index.tsx          # Navigation entry point
 │   └── global.css
-├── .env                        # Environment variables (tidak di-commit)
-├── .env.example                # Template environment variables
-├── app.json                    # Konfigurasi Expo
+├── .env                        # Your secret env vars (not committed)
+├── .env.example                # Template for env vars
+├── app.json                    # Expo config
 └── package.json
 ```
 
-## ⚙️ Prasyarat
+## ⚙️ Prerequisites
 
-Pastikan kamu sudah menginstal:
+Make sure you have these installed:
 
-- [Node.js](https://nodejs.org/) (v18 atau lebih baru)
+- [Node.js](https://nodejs.org/) (v18 or newer)
 - [Bun](https://bun.sh/) (package manager)
-- [Expo CLI](https://docs.expo.dev/get-started/installation/)
-- [Android Studio](https://developer.android.com/studio) (untuk Android Emulator)
-- Akun [Firebase](https://firebase.google.com/) dengan project yang aktif
+- [Android Studio](https://developer.android.com/studio) (for the Android emulator)
+- A [Firebase](https://firebase.google.com/) account with an active project
 
-## 🔧 Instalasi
+---
 
-### 1. Clone Repository
+## 🔧 Setup
+
+### 1. Clone the repo
 
 ```bash
-git clone <url-repository>
+git clone <your-repo-url>
 cd todo-list-app
 ```
 
-### 2. Install Dependencies
+### 2. Install dependencies
 
 ```bash
 bun install
 ```
 
-### 3. Konfigurasi Environment Variables
+### 3. Set up environment variables
 
-Salin file `.env.example` menjadi `.env`:
+Copy the example env file:
 
 ```bash
 cp .env.example .env
 ```
 
-Lalu isi nilai-nilainya dengan kredensial Firebase kamu:
+Then fill in your Firebase credentials in `.env`:
 
 ```env
 EXPO_PUBLIC_FIREBASE_API_KEY=your_api_key_here
@@ -85,158 +86,160 @@ EXPO_PUBLIC_FIREBASE_APP_ID=your_app_id
 EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID=your_measurement_id
 ```
 
-> **Cara mendapatkan kredensial Firebase:**
-> 1. Buka [Firebase Console](https://console.firebase.google.com/)
-> 2. Pilih / buat project
-> 3. Masuk ke **Project Settings → General**
-> 4. Scroll ke bawah ke bagian **Your apps → Web app**
-> 5. Salin nilai dari `firebaseConfig`
+> **Where to find your Firebase credentials:**
+> 1. Go to [Firebase Console](https://console.firebase.google.com/)
+> 2. Open your project → **Project Settings → General**
+> 3. Scroll down to **Your apps → Web app**
+> 4. Copy the values from `firebaseConfig`
 
-### 4. Setup Firebase Firestore
+### 4. Enable Firestore
 
-1. Di Firebase Console, buka **Firestore Database**
-2. Klik **Create database**
-3. Pilih mode **Start in test mode** (untuk development)
-4. Pilih lokasi server, lalu klik **Enable**
+1. In Firebase Console, go to **Firestore Database**
+2. Click **Create database**
+3. Choose **Start in test mode** (fine for development)
+4. Pick a server location → **Enable**
 
 ---
 
-## 🚀 Run Aplikasi
+## 🚀 Running the App
 
-### Menggunakan Expo Go (Scrpy / Scan QR)
+### Option 1 — Expo Go (Scan QR with your phone)
 
-Cara paling cepat — tidak perlu build, cukup scan QR code dengan aplikasi **Expo Go** di HP kamu.
+Fastest way to run the app — no build needed, just scan a QR code.
 
-**1. Install Expo Go di HP kamu:**
-- Android: [Google Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent)
+**Step 1:** Install **Expo Go** on your phone
+- Android: [Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent)
 - iOS: [App Store](https://apps.apple.com/app/expo-go/id982107779)
 
-**2. Jalankan dev server:**
+**Step 2:** Start the dev server
 
 ```bash
 bun run start
-# atau
+# or
 npx expo start
 ```
 
-**3. Scan QR Code:**
-- Buka aplikasi **Expo Go** di HP
+**Step 3:** Scan the QR code
+- Open **Expo Go** on your phone
 - Tap **"Scan QR code"**
-- Arahkan kamera ke QR code yang muncul di terminal
+- Point your camera at the QR code shown in the terminal
 
-> **Pastikan HP dan laptop berada di jaringan Wi-Fi yang sama!**
+> **Make sure your phone and laptop are on the same Wi-Fi network!**
+> If they're not, run `npx expo start --tunnel` instead.
 
-**Opsi tambahan saat dev server berjalan:**
+**Keyboard shortcuts while dev server is running:**
 
-| Tombol | Fungsi |
-|--------|--------|
-| `a` | Buka di Android Emulator |
-| `i` | Buka di iOS Simulator |
-| `w` | Buka di browser web |
-| `r` | Reload aplikasi |
-| `m` | Toggle menu dev |
+| Key | Action |
+|-----|--------|
+| `a` | Open on Android Emulator |
+| `i` | Open on iOS Simulator |
+| `w` | Open in browser |
+| `r` | Reload the app |
+| `m` | Toggle dev menu |
 
 ---
 
-### Menggunakan Android Emulator (Android Studio)
+### Option 2 — Android Emulator (Android Studio)
 
-**1. Setup Android Studio:**
+**Step 1: Set up Android Studio**
 
-a. Download dan install [Android Studio](https://developer.android.com/studio)
+1. Download and install [Android Studio](https://developer.android.com/studio)
+2. On first launch, follow the setup wizard and install the **Android SDK**
 
-b. Saat pertama kali buka, ikuti wizard setup dan install **Android SDK**
+**Step 2: Create a virtual device (AVD)**
 
-c. Buka **Android Studio → More Actions → Virtual Device Manager** (atau dari menu **Tools → Device Manager**)
+1. Open **Android Studio → More Actions → Virtual Device Manager**
+   (or from the menu: **Tools → Device Manager**)
+2. Click **"Create Device"**
+3. Pick a device (e.g. Pixel 6) → click **Next**
+4. Select a **System Image** — recommended: **API Level 34 (Android 14)**
+   - Download it if it's not already available
+5. Click **Next → Finish**
 
-d. Klik **"Create Device"**, pilih perangkat (contoh: Pixel 6), lalu klik **Next**
+**Step 3: Launch the emulator**
 
-e. Pilih **System Image** (rekomendasi: API Level 34 / Android 14), download jika belum ada, lalu klik **Next → Finish**
+In **Device Manager**, click the ▶️ play button next to your device.
+Wait until the Android homescreen fully loads.
 
-**2. Jalankan Emulator:**
+**Step 4: Set up environment variables (Linux)**
 
-a. Di **Device Manager**, klik tombol ▶️ (Play) di samping perangkat yang sudah dibuat
-
-b. Tunggu hingga emulator selesai booting (muncul tampilan homescreen Android)
-
-**3. Set environment variable (jika belum):**
+Add these to your `~/.bashrc` or `~/.zshrc`:
 
 ```bash
-# Tambahkan ke ~/.bashrc atau ~/.zshrc
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 
-Lalu reload shell:
+Then reload your shell:
+
 ```bash
 source ~/.bashrc
-# atau
+# or
 source ~/.zshrc
 ```
 
-**4. Jalankan aplikasi ke emulator:**
+**Step 5: Run the app on the emulator**
 
 ```bash
-# Langsung run ke Android (memerlukan build)
-npx expo run:android
-
-# ATAU: jalankan dev server lalu tekan 'a'
+# Start dev server and press 'a' to open on emulator
 bun run start
-# tekan huruf 'a' di terminal untuk membuka di emulator
+
+# Or directly build and run on Android
+npx expo run:android
 ```
 
-> **Catatan:** `npx expo run:android` akan men-generate folder `android/` dan melakukan build native. Ini diperlukan pertama kali atau saat ada perubahan native module.
+> **Note:** `npx expo run:android` will generate the `android/` folder and do a native build. You only need this the first time or when adding a new native module.
 
-**5. Verifikasi emulator terdeteksi:**
+**Verify the emulator is detected:**
 
 ```bash
 adb devices
-# Output yang diharapkan:
+# Expected output:
 # List of devices attached
 # emulator-5554   device
 ```
 
 ---
 
-## 📜 Scripts yang Tersedia
+## 📜 Available Scripts
 
 ```bash
-bun run start          # Jalankan Expo dev server
-bun run android        # Build dan jalankan di Android
-bun run ios            # Build dan jalankan di iOS
-bun run web            # Jalankan di browser web
-bun run lint           # Jalankan linter (ESLint)
-npx tsc --noEmit       # Type check TypeScript
-npx expo-doctor        # Diagnosa dependency & konfigurasi
+bun run start          # Start the Expo dev server
+bun run android        # Build and run on Android
+bun run ios            # Build and run on iOS
+bun run web            # Run in the browser
+bun run lint           # Run ESLint
+npx tsc --noEmit       # TypeScript type check
+npx expo-doctor        # Check dependencies and config health
 ```
 
 ---
 
 ## 🐛 Troubleshooting
 
-### Expo Go tidak bisa terhubung ke dev server
-- Pastikan HP dan laptop di jaringan Wi-Fi **yang sama**
-- Coba tekan `s` di terminal untuk beralih ke **Expo Go** mode
-- Gunakan **tunnel** jika di jaringan berbeda: `npx expo start --tunnel`
+**Expo Go can't connect to the dev server**
+- Make sure your phone and laptop are on the **same Wi-Fi**
+- Try pressing `s` in the terminal to switch to Expo Go mode
+- Use tunnel mode if on different networks: `npx expo start --tunnel`
 
-### Emulator tidak terdeteksi
-- Pastikan emulator sudah fully booted
-- Jalankan `adb devices` untuk memverifikasi
-- Coba restart ADB: `adb kill-server && adb start-server`
+**Emulator not detected**
+- Make sure the emulator is fully booted before running the app
+- Run `adb devices` to check
+- Restart ADB if needed: `adb kill-server && adb start-server`
 
-### Error Firebase / Firestore
-- Periksa kembali nilai di file `.env`
-- Pastikan Firestore sudah diaktifkan di Firebase Console
-- Periksa **Firestore Rules** — pastikan read/write diizinkan
+**Firebase / Firestore errors**
+- Double-check your `.env` values
+- Make sure Firestore is enabled in Firebase Console
+- Check **Firestore Rules** — read/write should be allowed in test mode
 
-### Metro bundler error
+**Metro bundler errors**
 ```bash
-npx expo start --clear   # Clear cache dan restart
+npx expo start --clear   # Clear cache and restart
 ```
 
 ---
 
-## 📄 Lisensi
+## 📄 License
 
-Project ini dibuat untuk keperluan mata kuliah **Pemrograman Mobile**.
-
+Built for **Mobile Programming** coursework.
